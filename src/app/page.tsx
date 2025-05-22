@@ -67,7 +67,7 @@ export default function Home() {
 
           <button
             onClick={handleGenerate}
-            className="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            className="w-full p-2 bg-[#0290d3] text-white rounded hover:opacity-90"
           >
             Generar QR
           </button>
@@ -76,7 +76,22 @@ export default function Home() {
         {showQR && text && (
           <div className="space-y-4">
             <div className="flex justify-center">
-              <QRCodeCanvas value={text} size={size} level="H" includeMargin />
+              <QRCodeCanvas
+                value={text}
+                size={size}
+                level="H"
+                includeMargin={true}
+                bgColor="#ffffff"
+                fgColor="#0290d3"
+                imageSettings={{
+                  src: "/logo.png",
+                  x: undefined,
+                  y: undefined,
+                  height: size * 0.1,
+                  width: size * 0.1814,
+                  excavate: true,
+                }}
+              />
             </div>
             <button
               onClick={handleDownload}
