@@ -10,6 +10,9 @@ const QRCodeCanvas = dynamic(
   }
 );
 
+const LOGO_ASPECT_RATIO = 1789 / 986;
+const LOGO_HEIGHT = 0.25; // 25% of QR code height
+
 export default function Home() {
   const [text, setText] = useState<string>("");
   const [size, setSize] = useState<number>(512);
@@ -61,7 +64,7 @@ export default function Home() {
               onChange={(e) => setSize(Number(e.target.value))}
               className="w-full p-2 border rounded"
               min="64"
-              max="512"
+              max="1024"
             />
           </div>
 
@@ -87,8 +90,8 @@ export default function Home() {
                   src: "/logo.png",
                   x: undefined,
                   y: undefined,
-                  height: size * 0.1,
-                  width: size * 0.1814,
+                  height: size * LOGO_HEIGHT,
+                  width: size * LOGO_HEIGHT * LOGO_ASPECT_RATIO,
                   excavate: true,
                 }}
               />
